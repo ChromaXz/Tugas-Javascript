@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Pegawai</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Data pegawai
+        const namaPegawai = "Ridwan";
+        const jabatan = "Manager";
+        const status = "Menikah";
+
+        // Fungsi untuk menghitung gaji
+        function hitungGaji(jabatan, status) {
+            let gajiPokok;
+            switch (jabatan) {
+                case "Manager":
+                    gajiPokok = 15000000;
+                    break;
+                case "Asisten Manager":
+                    gajiPokok = 10000000;
+                    break;
+                case "Staff":
+                    gajiPokok = 5000000;
+                    break;
+                default:
+                    gajiPokok = 0;
+            }
+
+            const tunjanganJabatan = gajiPokok * 0.15;
+            const bpjs = gajiPokok * 0.1;
+            const tunjanganKeluarga = status === "Menikah" ? gajiPokok * 0.2 : 0;
+            const totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+            return {
+                gajiPokok,
+                tunjanganJabatan,
+                bpjs,
+                tunjanganKeluarga,
+                totalGaji
+            };
+        }
+
+        // Memasukkan data ke dalam tabel
+        const hasil = hitungGaji(jabatan, status);
+
+        document.write('<table>');
+        document.write('<thead><tr><th>Nama Pegawai</th><th>Jabatan</th><th>Status</th><th>Gaji Pokok</th><th>Tunjangan Jabatan</th><th>BPJS</th><th>Tunjangan Keluarga</th><th>Total Gaji</th></tr></thead>');
+        document.write('<tbody><tr>');
+        document.write(`<td>${namaPegawai}</td>`);
+        document.write(`<td>${jabatan}</td>`);
+        document.write(`<td>${status}</td>`);
+        document.write(`<td>Rp ${hasil.gajiPokok.toLocaleString()}</td>`);
+        document.write(`<td>Rp ${hasil.tunjanganJabatan.toLocaleString()}</td>`);
+        document.write(`<td>Rp ${hasil.bpjs.toLocaleString()}</td>`);
+        document.write(`<td>Rp ${hasil.tunjanganKeluarga.toLocaleString()}</td>`);
+        document.write(`<td>Rp ${hasil.totalGaji.toLocaleString()}</td>`);
+        document.write('</tr></tbody>');
+        document.write('<tfoot><tr><td colspan="7">Total Gaji</td><td>Rp ' + hasil.totalGaji.toLocaleString() + '</td></tr></tfoot>');
+        document.write('</table>');
+    </script>
+</body>
+
+</html>

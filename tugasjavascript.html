@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Pegawai</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="namaPegawai"></td>
+                <td id="jabatan"></td>
+                <td id="status"></td>
+                <td id="gajiPokok"></td>
+                <td id="tunjanganJabatan"></td>
+                <td id="bpjs"></td>
+                <td id="tunjanganKeluarga"></td>
+                <td id="totalGaji"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7">Total Gaji</td>
+                <td id="totalGajiFooter"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        // Data pegawai
+        const namaPegawai = "Ridwan";
+        const jabatan = "Manager";
+        const status = "Menikah";
+
+        // Fungsi untuk menghitung gaji
+        function hitungGaji(jabatan, status) {
+            let gajiPokok;
+            switch (jabatan) {
+                case "Manager":
+                    gajiPokok = 15000000;
+                    break;
+                case "Asisten Manager":
+                    gajiPokok = 10000000;
+                    break;
+                case "Staff":
+                    gajiPokok = 5000000;
+                    break;
+                default:
+                    gajiPokok = 0;
+            }
+
+            const tunjanganJabatan = gajiPokok * 0.15;
+            const bpjs = gajiPokok * 0.1;
+            const tunjanganKeluarga = status === "Menikah" ? gajiPokok * 0.2 : 0;
+            const totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+            return {
+                gajiPokok,
+                tunjanganJabatan,
+                bpjs,
+                tunjanganKeluarga,
+                totalGaji
+            };
+        }
+
+        // Memasukkan data ke dalam tabel
+        const hasil = hitungGaji(jabatan, status);
+        document.getElementById("namaPegawai").textContent = namaPegawai;
+        document.getElementById("jabatan").textContent = jabatan;
+        document.getElementById("status").textContent = status;
+        document.getElementById("gajiPokok").textContent = "Rp " + hasil.gajiPokok.toLocaleString();
+        document.getElementById("tunjanganJabatan").textContent = "Rp " + hasil.tunjanganJabatan.toLocaleString();
+        document.getElementById("bpjs").textContent = "Rp " + hasil.bpjs.toLocaleString();
+        document.getElementById("tunjanganKeluarga").textContent = "Rp " + hasil.tunjanganKeluarga.toLocaleString();
+        document.getElementById("totalGaji").textContent = "Rp " + hasil.totalGaji.toLocaleString();
+        document.getElementById("totalGajiFooter").textContent = "Rp " + hasil.totalGaji.toLocaleString();
+    </script>
+</body>
+
+</html>
