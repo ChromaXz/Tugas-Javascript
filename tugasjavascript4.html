@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pegawai</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+        <tbody id="employeeData"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7">Total Gaji Keseluruhan</td>
+                <td id="totalGaji"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
