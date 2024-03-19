@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pegawai</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Input Data Pegawai</h2>
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama"><br><br>
+    <label for="jabatan">Jabatan:</label>
+    <select id="jabatan">
+        <option value="Manager">Manager</option>
+        <option value="Asisten Manager">Asisten Manager</option>
+        <option value="Staff">Staff</option>
+    </select><br><br>
+    <label for="status">Status:</label>
+    <select id="status">
+        <option value="Menikah">Menikah</option>
+        <option value="Belum Menikah">Belum Menikah</option>
+    </select><br><br>
+    <button onclick="tambahPegawai()">Tambah Pegawai</button>
+
+    <h2>Data Pegawai</h2>
+    <table id="tabel-pegawai">
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+        <tbody id="data-pegawai"></tbody>
+        <tfoot id="total-gaji"></tfoot>
+    </table>
+
+    <script src="toko.js"></script>
+</body>
+</html>
