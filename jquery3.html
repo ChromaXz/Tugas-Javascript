@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <link rel="stylesheet" href="jquery.css">
+</head>
+<body>
+    <h2>Letakkan kursor ke masing masing kotak untuk melihat gambar</h2>
+    <div id="div1">
+        Hewan Bebek
+    </div>
+    <div id="div2">
+        Hewan Kucing
+    </div>
+    <div id="div3">
+        Hewan Ayam
+    </div>
+    <audio id="sound-bebek" preload="auto">
+        <source src="suara-bebek.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sound-kucing" preload="auto">
+        <source src="suara-kucing.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sound-ayam" preload="auto">
+        <source src="suara-ayam.mp3" type="audio/mpeg">
+    </audio>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        //tugas hari ini
+        //ketika mousenya diatas gambar atau kotak maka hewannya bisa bersuara
+        $("document").ready(function(){
+            
+            $("#div1").mouseover(function(){
+                    $(this).css({
+                        background: "url('https://img.freepik.com/free-vector/little-duck-white-ground_1308-91145.jpg?t=st=1710905731~exp=1710909331~hmac=4e610fabf870b80c127aa671279da3177c08b0599c01beee68efc6b7466b51f4&w=900')"
+                    });
+                    document.getElementById("sound-bebek").play();
+                });
+            $("div").mouseout(function(){
+                $(this).css({
+                    background: "green"
+                });
+            });
+            $("#div2").mouseover(function(){
+                    $(this).css({
+                        background: "url('https://img.freepik.com/free-photo/red-white-cat-i-white-studio_155003-13189.jpg?w=360&t=st=1710907060~exp=1710907660~hmac=1fdc6fe7a30f71316248f1816e609c1aeb19089a4cd52bb7c42163a06eb6dc13')"
+                    });
+                    document.getElementById("sound-kucing").play();
+                });
+            $("#div3").mouseover(function(){
+                    $(this).css({
+                        background: "url('https://img.freepik.com/free-vector/colorful-realistic-rooster_1284-10245.jpg?t=st=1710907267~exp=1710910867~hmac=9f4cb88bbb0ded6c4e9388423e9044fa7c57fa7109d314e525e5c33d9a724b3c&w=740')",
+                        //"background-repeat": "no-repeat"
+                    });
+                    document.getElementById("sound-ayam").play();
+                });
+        });
+    </script>
+</body>
+</html>
